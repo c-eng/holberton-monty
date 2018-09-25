@@ -11,8 +11,8 @@
 
 int main(int argc, char **argv)
 {
-	char *file_buffer, **strray; /* need to malloc strray */
-	int file, l_index = 0;
+	char *file_buffer, **strray, **tokray; /* need to malloc strray */
+	int file, l_index = 0, i = 0;
 	size_t buffsize = 1024;
 
 	if (argc != 2)
@@ -38,13 +38,17 @@ int main(int argc, char **argv)
 		printf("Error: malloc failed\n"); /* print to stderr */
 		return (1);
 	}
+	tokray = malloc(buffsize);
 	//get file input (get_input), also tokenizes by line
 	input_get(file_buffer, file, strray);
 	while (strray[l_index])
 	{
-		//we need to parse and tokenize each line (start of loop)
-		//then we need to interpret each line to extract an opcode
+		str_tokenize(strray[l_index], tokray);
+		for (i = 0; tokray[i] != NULL ; i++)
+			printf("%s\n", tokray[i]);
+		//then we need to interpret each token to extract an opcode
 		//sent the opcode to the opcode selecting struct
+		l_index++;
 	}
 
 	return (0);

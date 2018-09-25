@@ -45,5 +45,6 @@ typedef struct instruction_s
 
 /*** Prototypes ***/
 int input_get(char *buffer, int file, char **str_array);
+int str_tokenize(char *s, char **tok_array);
 
 #endif /* _MONTY_H_ */
