@@ -14,6 +14,7 @@ int main(int argc, char **argv)
 	char *file_buffer, **strray, **tokray; /* need to malloc strray */
 	int file, l_index = 0, i = 0;
 	size_t buffsize = 1024;
+	stack_t *stack = NULL;
 
 	if (argc != 2)
 	{
@@ -44,8 +45,7 @@ int main(int argc, char **argv)
 	while (strray[l_index])
 	{
 		str_tokenize(strray[l_index], tokray);
-		for (i = 0; tokray[i] != NULL ; i++)
-			printf("%s\n", tokray[i]);
+		get_opcode(tokray)(stack, (unsigned int) (l_index + 1));
 		//then we need to interpret each token to extract an opcode
 		//sent the opcode to the opcode selecting struct
 		l_index++;
