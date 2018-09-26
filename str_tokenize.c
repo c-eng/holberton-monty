@@ -10,7 +10,7 @@ int str_tokenize(char *s, char **tok_array)
 	char  *token, new[] = {'\n', '\0'};
 	int  token_c = 0;
 
-	printf("tokenizing\n");
+	/* printf("tokenizing\n"); */
 	if (!s)
 		return (-1);
 	token = strtok(s, " ");
@@ -22,7 +22,7 @@ int str_tokenize(char *s, char **tok_array)
 	}
 	if (tok_array[token_c - 1][strlen(tok_array[token_c - 1]) - 1] == '\n')
 	{
-		printf("stripping\n");
+		/* printf("stripping\n"); */
 		tok_array[token_c - 1] = strtok(tok_array[token_c - 1], new);
 	}
 	tok_array[token_c] = NULL;
