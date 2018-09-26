@@ -43,6 +43,16 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+
+/*** Global Struct ***/
+extern typedef struct sharedvar_s
+{
+	int push_val;
+	int queue;
+	stack_t *head;
+} svar_t
+
+
 /*** Prototypes ***/
 int input_get(char *buffer, FILE *file);
 int str_tokenize(char *s, char **tok_array);
