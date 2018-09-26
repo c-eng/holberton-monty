@@ -44,7 +44,7 @@ typedef struct instruction_s
 } instruction_t;
 
 /*** Prototypes ***/
-int input_get(char *buffer, int file, char **str_array);
+int input_get(char *buffer, FILE *file);
 int str_tokenize(char *s, char **tok_array);
 
 #endif /* _MONTY_H_ */

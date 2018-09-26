@@ -10,25 +10,15 @@
  * Return: 0
  */
 
-int input_get(char *buffer, int file, char **str_array)
+int input_get(char *buffer, FILE *file)
 {
-	char *line, new[] = {'\n', '\0'};
-	size_t size = BUF_MAX; /* assuming filesize is less than buff max */
-	ssize_t bytes;
-	int j = 0;
+	char *get;
+	int size = BUF_MAX;
 
-	bytes = read(file, buffer, size);
-	if (bytes == -1)
+	get = fgets(buffer, size, file);
+	if (!get)
 	{
 		return (-1);
 	}
-	line = strtok(buffer, new);
-	while (line)
-	{
-		str_array[j] = line;
-		line = strtok(NULL, new);
-		j++;
-	}
-	str_array[j] = NULL;
 	return (0);
 }

@@ -11,18 +11,18 @@
 
 int main(int argc, char **argv)
 {
-	char *file_buffer, **strray, **tokray; /* need to malloc strray */
-	int file, l_index = 0, i = 0;
+	char *file_buffer, **tokray; /* need to malloc strray */
+	int l_index = 0, get = 1, i;
 	size_t buffsize = 1024;
-	stack_t *stack = NULL;
+	FILE *fd;
 
 	if (argc != 2)
 	{
 		printf("USAGE: monty file\n"); /* print to stderr */
 		return (1); /* exit with EXIT_FAILURE */
 	}
-	file = open(argv[1], O_RDONLY);
-	if (file == -1)
+	fd = fopen(argv[1], "r");
+	if (!fd)
 	{
 		printf("Error: Can't open file %s\n", argv[1]); /* print to stderr */
 		return (1);
@@ -33,19 +33,19 @@ int main(int argc, char **argv)
 		printf("Error: malloc failed\n"); /* print to stderr */
                 return (1);
 	}
-	strray = malloc(buffsize);
-	if (!strray)
+	tokray = malloc(buffsize);
+	if (!tokray)
 	{
 		printf("Error: malloc failed\n"); /* print to stderr */
 		return (1);
-	}
-	tokray = malloc(buffsize);
-	//get file input (get_input), also tokenizes by line
-	input_get(file_buffer, file, strray);
-	while (strray[l_index])
+        }
+	while (get != -1)
 	{
-		str_tokenize(strray[l_index], tokray);
-		get_opcode(tokray)(stack, (unsigned int) (l_index + 1));
+		printf("%d:::\n", l_index);
+		get = input_get(file_buffer, fd);
+		str_tokenize(file_buffer, tokray);
+		for (i = 0; tokray[i] != NULL; i++)
+			printf("%s\n", tokray[i]);
 		//then we need to interpret each token to extract an opcode
 		//sent the opcode to the opcode selecting struct
 		l_index++;
