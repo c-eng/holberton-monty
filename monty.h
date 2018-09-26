@@ -9,6 +9,9 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
+#define BUF_MAX 1024
+
+/*** Structs ***/
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -41,5 +44,7 @@ typedef struct instruction_s
 } instruction_t;
 
 /*** Prototypes ***/
+int input_get(char *buffer, FILE *file);
+int str_tokenize(char *s, char **tok_array);
 
 #endif /* _MONTY_H_ */

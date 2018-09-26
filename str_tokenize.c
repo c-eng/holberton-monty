@@ -1,17 +1,16 @@
 #include "monty.h"
 /**
- * str_tokenize - tokenizes a string 
+ * str_tokenize - tokenizes a string
  * @s: string
  * Return: 0
  */
 
-int  str_tokenize(char *s, char **tok_array)
+int str_tokenize(char *s, char **tok_array)
 {
-	char **strray;
 	char  *token;
 	int  token_c = 0;
 	if (!s)
-		return (NULL);
+		return (-1);
 	token = strtok(s, " ");
 	while (token)
 	{
