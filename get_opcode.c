@@ -5,23 +5,25 @@
  * Return: operation to be used
  */
 
-operator_t *get_opcode(const char *tokray)
+void (*get_opcode(char **tokray))()
 {
-	operator_t array[] = {
+	int i = 0;
+	instruction_t array[] = {
 		{"push", op_push},
-		{"pall", op_pall},
+		{"pall", op_pall},/*
 		{"pint", op_pint},
 		{"pop", op_pop},
 		{"swap", op_swap},
 		{"add", op_add},
-		{"nop", op_nop},
+		{"nop", op_nop},*/
 		{NULL, NULL}
 	};
-	array = malloc(sizeof(operation_t));
-	int i = 0;
-	while (array[i].opcode && strcmp(array[i].opcode, tokray))
+
+	while (array[i].opcode && strcmp(array[i].opcode, tokray[0]))
 	{
 		i++;
 	}
-	return (array);
+	if (i == 0 && tokray[1])
+		svar_t.push_val = tokray[1];
+	return (array[i].f);
 }

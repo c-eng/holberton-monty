@@ -45,16 +45,18 @@ typedef struct instruction_s
 
 
 /*** Global Struct ***/
-extern typedef struct sharedvar_s
+typedef struct sharedvar_s
 {
 	int push_val;
 	int queue;
 	stack_t *head;
-} svar_t
-
+}svar_t;
 
 /*** Prototypes ***/
 int input_get(char *buffer, FILE *file);
 int str_tokenize(char *s, char **tok_array);
+void (*get_opcode(char **tokray))();
+stack_t *op_push(stack_t **head, unsigned int line);
+size_t op_pall(const stack_t *head, unsigned int line);
 
 #endif /* _MONTY_H_ */
