@@ -52,11 +52,14 @@ typedef struct sharedvar_s
 	stack_t *head;
 }svar_t;
 
+extern svar_t share;
+
 /*** Prototypes ***/
 int input_get(char *buffer, FILE *file);
 int str_tokenize(char *s, char **tok_array);
 void (*get_opcode(char **tokray))();
-stack_t *op_push(stack_t **head, unsigned int line);
-size_t op_pall(const stack_t *head, unsigned int line);
+void push(stack_t **head, unsigned int line);
+void pall(stack_t **head, unsigned int line);
+void nop(stack_t **head, unsigned int line);
 
 #endif /* _MONTY_H_ */

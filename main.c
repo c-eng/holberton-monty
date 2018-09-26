@@ -1,5 +1,7 @@
 #include "monty.h"
 
+svar_t share = {0, 0, NULL};
+
 /**
  * main - Body of Monty interpreter
  *
@@ -9,13 +11,13 @@
  * Return: Something
  */
 
-int main(int argc, char **argv)
+int main(int argc __attribute__((unused)), char **argv)
 {
 	char *file_buffer, **tokray; /* need to malloc strray */
 	int l_index = 0, get = 1;
 	size_t buffsize = 1024;
 	FILE *fd;
-	stack_t *stack = NULL;
+	stack_t *head = NULL;
 
 	if (argc != 2)
 	{
@@ -40,13 +42,12 @@ int main(int argc, char **argv)
 		printf("Error: malloc failed\n"); /* print to stderr */
 		return (1);
         }
+	get = input_get(file_buffer, fd);
 	while (get != -1)
 	{
-		get = input_get(file_buffer, fd);
 		str_tokenize(file_buffer, tokray);
-		get_opcode(tokray)(stack, (unsigned int) (l_index + 1));
-		//then we need to interpret each token to extract an opcode
-		//sent the opcode to the opcode selecting struct
+		get_opcode(tokray)(&head, (unsigned int) l_index + 1);
+		get = input_get(file_buffer, fd);
 		l_index++;
 	}
 

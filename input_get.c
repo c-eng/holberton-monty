@@ -20,5 +20,7 @@ int input_get(char *buffer, FILE *file)
 	{
 		return (-1);
 	}
+	printf("%s", buffer);
+	printf("NEWLINE::::::\n");
 	return (0);
 }

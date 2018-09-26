@@ -9,21 +9,27 @@ void (*get_opcode(char **tokray))()
 {
 	int i = 0;
 	instruction_t array[] = {
-		{"push", op_push},
-		{"pall", op_pall},/*
-		{"pint", op_pint},
-		{"pop", op_pop},
-		{"swap", op_swap},
-		{"add", op_add},
-		{"nop", op_nop},*/
-		{NULL, NULL}
+		{"push", push},
+		{"pall", pall},
+/*		{"pall\n", pall},
+		{"pint", pint},
+		{"pop", pop},
+		{"swap", swap},
+		{"add", add},
+		{"nop", nop},*/
+		{NULL, nop}
 	};
 
+	printf("getting opcode\n");
 	while (array[i].opcode && strcmp(array[i].opcode, tokray[0]))
 	{
+		printf("%s, %s\n", tokray[0], array[i].opcode);
 		i++;
 	}
 	if (i == 0 && tokray[1])
-		svar_t.push_val = tokray[1];
+	{
+		printf("assigning value\n");
+		share.push_val = atoi(tokray[1]);
+	}
 	return (array[i].f);
 }
