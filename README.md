@@ -23,7 +23,7 @@ gcc -Wall -Werror -Wextra -pedantic *.c -o monty
 | `pall.c` | prints the elements |
 | `pint.c` | prints the value at the top of the stack |
 | `pop.c` | removes the top element of the stack |
-| `swap.c | swaps the first two elements of the stack |
+| `swap.c` | swaps the first two elements of the stack |
 | `add.c` | adds the top two elements of the stack |
 | `nop.c` | does nothing |
 | `sub.c` | subtracts the top two elements of the stack |
