@@ -23,7 +23,7 @@ void (*get_opcode())()
 	};
 	if (share.tokray[0])
 	{
-		if (share.tokray[0][0] = '#')
+		if (share.tokray[0][0] == '#')
 			return (array[6].f);
 		while (array[i].opcode &&
 		       strcmp(array[i].opcode, share.tokray[0]))
