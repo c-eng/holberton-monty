@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * div - divides the top two elements of the stack
+ * mdiv - divides the top two elements of the stack
  * @head: double pointer to head
  * @line: the line number
  * Return: nothing
