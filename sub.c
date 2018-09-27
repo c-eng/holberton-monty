@@ -11,10 +11,7 @@ void sub(stack_t **head, unsigned int line __attribute__((unused)))
 	stack_t *strider;
 
 	if (!*head || (*head)->next == NULL)
-	{
-		printf("L%d: can't sub, stack too short\n", line);
-		exit(EXIT_FAILURE);
-	}
+		err_exit(1, "can't sub, stack too short\n", 0);
 	strider = (*head)->next;
 	diff = strider->n - (*head)->n;
 	strider->n = diff;
