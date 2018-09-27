@@ -13,17 +13,16 @@ void push(stack_t **head, unsigned int line __attribute__((unused)))
 {
 	stack_t *add = NULL;
 
-	printf("Pushing: %d\n", share.push_val);
+	/* printf("Pushing: %d\n", share.push_val); */
 	if (!head)
-		return;
+		err_exit(0, "Headless Add\n", 0);
 	add = malloc(sizeof(stack_t));
 	if (!add)
-		return;
+		err_exit(0, "Error: malloc failed\n", 0);
 	add->n = (int) share.push_val;
 	add->next = *head;
 	add->prev = NULL;
 	*head = add;
 	if (add->next)
 		add->next->prev = add;
-	return;
 }

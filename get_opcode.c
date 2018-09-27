@@ -1,35 +1,47 @@
 #include "monty.h"
 /**
  * get_opcode - get the correct operation code
- * @s: input
  * Return: operation to be used
  */
 
-void (*get_opcode(char **tokray))()
+void (*get_opcode())()
 {
 	int i = 0;
 	instruction_t array[] = {
 		{"push", push},
 		{"pall", pall},
-/*		{"pall\n", pall},
 		{"pint", pint},
 		{"pop", pop},
 		{"swap", swap},
 		{"add", add},
-		{"nop", nop},*/
-		{NULL, nop}
+		{"nop", nop},
+		{"sub", sub},
+		{NULL, NULL}
 	};
-
-	printf("getting opcode\n");
-	while (array[i].opcode && strcmp(array[i].opcode, tokray[0]))
+	if (share.tokray[0])
 	{
-		printf("%s, %s\n", tokray[0], array[i].opcode);
-		i++;
+		while (array[i].opcode &&
+		       strcmp(array[i].opcode, share.tokray[0]))
+			i++;
+		if (i == 0)
+		{
+			if (share.tokray[1])
+			{
+				if (intcheck(share.tokray[1]))
+					share.push_val = atoi(share.tokray[1]);
+				else
+					err_exit(1, "usage: push integer\n", 0);
+			}
+			else
+				err_exit(1, "usage: push integer\n", 0);
+		}
 	}
-	if (i == 0 && tokray[1])
+	else
+		return (array[6].f);
+	if (!array[i].opcode)
 	{
-		printf("assigning value\n");
-		share.push_val = atoi(tokray[1]);
+		share.post_err = share.tokray[0];
+		err_exit(1, "unknown instruction ", 1);
 	}
 	return (array[i].f);
 }

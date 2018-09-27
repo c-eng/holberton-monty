@@ -12,5 +12,5 @@
 void nop(stack_t **head __attribute__((unused)),
 	 unsigned int line __attribute__((unused)))
 {
-	return;
+	;
 }

@@ -1,30 +1,30 @@
 #include "monty.h"
 /**
  * str_tokenize - tokenizes a string
- * @s: string
+ *
  * Return: 0
  */
 
-int str_tokenize(char *s, char **tok_array)
+int str_tokenize(void)
 {
 	char  *token, new[] = {'\n', '\0'};
 	int  token_c = 0;
 
-	printf("tokenizing\n");
-	if (!s)
-		return (-1);
-	token = strtok(s, " ");
+	/* printf("tokenizing\n"); */
+	if (!share.file_buffer)
+		err_exit(0, "Error: Bad Tokenization\n", 0);
+	token = strtok(share.file_buffer, " ");
 	while (token)
 	{
-		tok_array[token_c] = token;
+		share.tokray[token_c] = token;
 		token = strtok(NULL, " ");
 		token_c++;
 	}
-	if (tok_array[token_c - 1][strlen(tok_array[token_c - 1]) - 1] == '\n')
+	if (share.tokray[token_c - 1][strlen(share.tokray[token_c - 1]) - 1] == '\n')
 	{
-		printf("stripping\n");
-		tok_array[token_c - 1] = strtok(tok_array[token_c - 1], new);
+		/* printf("stripping\n"); */
+		share.tokray[token_c - 1] = strtok(share.tokray[token_c - 1], new);
 	}
-	tok_array[token_c] = NULL;
+	share.tokray[token_c] = NULL;
 	return (0);
 }
