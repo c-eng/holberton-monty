@@ -3,7 +3,6 @@
  * get_opcode - get the correct operation code
  * Return: operation to be used
  */
-
 void (*get_opcode())()
 {
 	int i = 0;

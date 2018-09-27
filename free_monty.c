@@ -1,11 +1,9 @@
 #include "monty.h"
-
 /**
  * free_monty - Frees monty list
  *
  * Return: void
  */
-
 void free_monty(void)
 {
 	while (share.head)

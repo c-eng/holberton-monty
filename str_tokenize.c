@@ -4,13 +4,11 @@
  *
  * Return: 0
  */
-
 int str_tokenize(void)
 {
 	char  *token, new[] = {'\n', '\0'};
 	int  token_c = 0;
 
-	/* printf("tokenizing\n"); */
 	if (!share.file_buffer)
 		err_exit(0, "Error: Bad Tokenization\n", 0);
 	token = strtok(share.file_buffer, " ");
@@ -21,10 +19,7 @@ int str_tokenize(void)
 		token_c++;
 	}
 	if (share.tokray[token_c - 1][strlen(share.tokray[token_c - 1]) - 1] == '\n')
-	{
-		/* printf("stripping\n"); */
 		share.tokray[token_c - 1] = strtok(share.tokray[token_c - 1], new);
-	}
 	share.tokray[token_c] = NULL;
 	return (0);
 }
