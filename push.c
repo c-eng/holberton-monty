@@ -25,5 +25,4 @@ void push(stack_t **head, unsigned int line __attribute__((unused)))
 	*head = add;
 	if (add->next)
 		add->next->prev = add;
-	return;
 }

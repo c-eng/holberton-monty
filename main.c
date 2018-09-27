@@ -34,7 +34,7 @@ int main(int argc __attribute__((unused)), char **argv)
 		err_exit(0, "Error: Can't open file %s\n", 1);
 	}
 	share.file_buffer = malloc(buffsize);
-        if (!share.file_buffer)
+	if (!share.file_buffer)
 		err_exit(0, "Error: malloc failed\n", 0);
 	share.tokray = malloc(buffsize);
 	if (!share.tokray)

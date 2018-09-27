@@ -5,7 +5,7 @@
  * Return: 0
  */
 
-int str_tokenize()
+int str_tokenize(void)
 {
 	char  *token, new[] = {'\n', '\0'};
 	int  token_c = 0;

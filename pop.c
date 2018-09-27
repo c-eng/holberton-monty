@@ -8,6 +8,7 @@
 void pop(stack_t **head, unsigned int line __attribute__((unused)))
 {
 	stack_t *strider;
+
 	if (!*head)
 		err_exit(1, "can't pop an empty stack\n", 0);
 	/* printf("popping\n"); */

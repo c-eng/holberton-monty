@@ -2,10 +2,9 @@
 
 /**
  * pall - prints the elements
- *
  * @head: Head of doubly linked list
- *
- * Return: number of nodes
+ * @line: the line number
+ * Return: nothing
  */
 
 void pall(stack_t **head, unsigned int line __attribute__((unused)))
@@ -20,5 +19,4 @@ void pall(stack_t **head, unsigned int line __attribute__((unused)))
 		node += 1;
 		strider = strider->next;
 	}
-	return;
 }

@@ -16,7 +16,5 @@ int input_get(FILE *file)
 	get = fgets(share.file_buffer, size, file);
 	if (!get)
 		return (-1);
-	/* printf("%s", buffer);
-	   printf("NEWLINE::::::\n"); */
 	return (0);
 }

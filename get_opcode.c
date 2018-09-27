@@ -1,7 +1,6 @@
 #include "monty.h"
 /**
  * get_opcode - get the correct operation code
- * @s: input
  * Return: operation to be used
  */
 
@@ -13,26 +12,21 @@ void (*get_opcode())()
 		{"pall", pall},
 		{"pint", pint},
 		{"pop", pop},
-       		{"swap", swap},
-       		{"add", add},
+		{"swap", swap},
+		{"add", add},
 		{"nop", nop},
+		{"sub", sub},
 		{NULL, NULL}
 	};
-
-/*	printf("getting opcode\n");*/
 	if (share.tokray[0])
 	{
 		while (array[i].opcode &&
 		       strcmp(array[i].opcode, share.tokray[0]))
-		{
-			/*		printf("%s, %s\n", tokray[0], array[i].opcode); */
 			i++;
-		}
 		if (i == 0)
 		{
 			if (share.tokray[1])
 			{
-				/*	printf("assigning value\n"); */
 				if (intcheck(share.tokray[1]))
 					share.push_val = atoi(share.tokray[1]);
 				else
@@ -43,7 +37,7 @@ void (*get_opcode())()
 		}
 	}
 	else
-		return (array[6].f); /* Make sure to change number to nop */
+		return (array[6].f);
 	if (!array[i].opcode)
 	{
 		share.post_err = share.tokray[0];

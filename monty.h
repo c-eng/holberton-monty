@@ -62,7 +62,7 @@ extern svar_t share;
 /*** Prototypes ***/
 void err_exit(int line_append, char *error, int end);
 int input_get(FILE *file);
-int str_tokenize();
+int str_tokenize(void);
 void (*get_opcode())();
 int intcheck(char *str);
 void push(stack_t **head, unsigned int line);
@@ -72,5 +72,6 @@ void pint(stack_t **head, unsigned int line);
 void pop(stack_t **head, unsigned int line);
 void swap(stack_t **head, unsigned int line);
 void add(stack_t **head, unsigned int line);
+void sub(stack_t **head, unsigned int line);
 
 #endif /* _MONTY_H_ */
