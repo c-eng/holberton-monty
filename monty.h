@@ -93,5 +93,7 @@ void mul(stack_t **head, unsigned int line);
 void mod(stack_t **head, unsigned int line);
 void pchar(stack_t **head, unsigned int line);
 void pstr(stack_t **head, unsigned int line);
+void rotl(stack_t **head, unsigned int line);
+void rotr(stack_t **head, unsigned int line);
 
 #endif /* _MONTY_H_ */
