@@ -16,10 +16,15 @@ void (*get_opcode())()
 		{"add", add},
 		{"nop", nop},
 		{"sub", sub},
+		{"div", mdiv},
+		{"mul", mul},
+		{"mod", mod},
 		{NULL, NULL}
 	};
 	if (share.tokray[0])
 	{
+		if (share.tokray[0][0] = '#')
+			return (array[6].f);
 		while (array[i].opcode &&
 		       strcmp(array[i].opcode, share.tokray[0]))
 			i++;

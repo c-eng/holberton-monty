@@ -75,5 +75,8 @@ void pop(stack_t **head, unsigned int line);
 void swap(stack_t **head, unsigned int line);
 void add(stack_t **head, unsigned int line);
 void sub(stack_t **head, unsigned int line);
+void mdiv(stack_t **head, unsigned int line);
+void mul(stack_t **head, unsigned int line);
+void mod(stack_t **head, unsigned int line);
 
 #endif /* _MONTY_H_ */
