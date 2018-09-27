@@ -25,9 +25,9 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -40,12 +40,25 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 
 /*** Global Struct ***/
+/**
+ * struct sharedvar_s - struct of variables
+ * @push_val: variable to push onto the stack
+ * @queue: flag to queue behavior
+ * @line_no: the line number
+ * @fd: file descriptor
+ * @post_err: error variable to post append
+ * @head: pointer to head
+ * @file_buffer: buffer for file input
+ * @tokray: array of string tokens for op commands
+ *
+ * Description: global variables to be used across all functions
+ */
 typedef struct sharedvar_s
 {
 	int push_val;
@@ -56,7 +69,7 @@ typedef struct sharedvar_s
 	stack_t *head;
 	char *file_buffer;
 	char **tokray;
-}svar_t;
+} svar_t;
 
 extern svar_t share;
 
