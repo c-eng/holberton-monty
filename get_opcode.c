@@ -19,6 +19,8 @@ void (*get_opcode())()
 		{"div", mdiv},
 		{"mul", mul},
 		{"mod", mod},
+		{"pchar", pchar},
+		{"pstr", pstr},
 		{NULL, NULL}
 	};
 	if (share.tokray[0])
