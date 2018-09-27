@@ -17,15 +17,17 @@ void err_exit(int line_append, char *error, int end)
 	if (end == 1)
 	{
 		fprintf(stderr, "%s ", error);
-		fprintf(stderr, "%s", share.post_err);
+		fprintf(stderr, "%s\n", share.post_err);
 	}
 	else
 		fprintf(stderr, "%s", error);
+	if (share.fd)
+		fclose(share.fd);
 	if (share.file_buffer)
 		free(share.file_buffer);
 	if (share.tokray)
 		free(share.tokray);
 	if (share.head)
-		free(share.head);
+		free_monty();
 	exit(EXIT_FAILURE);
 }

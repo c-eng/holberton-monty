@@ -51,6 +51,7 @@ typedef struct sharedvar_s
 	int push_val;
 	int queue;
 	int line_no;
+	FILE *fd;
 	char *post_err;
 	stack_t *head;
 	char *file_buffer;
@@ -60,8 +61,9 @@ typedef struct sharedvar_s
 extern svar_t share;
 
 /*** Prototypes ***/
+void free_monty(void);
 void err_exit(int line_append, char *error, int end);
-int input_get(FILE *file);
+int input_get(void);
 int str_tokenize(void);
 void (*get_opcode())();
 int intcheck(char *str);

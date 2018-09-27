@@ -41,7 +41,7 @@ void (*get_opcode())()
 	if (!array[i].opcode)
 	{
 		share.post_err = share.tokray[0];
-		err_exit(1, "unknown instruction ", 1);
+		err_exit(1, "unknown instruction", 1);
 	}
 	return (array[i].f);
 }
