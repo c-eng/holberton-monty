@@ -8,10 +8,10 @@
 void pchar(stack_t **head, unsigned int line __attribute__((unused)))
 {
 	if (!*head)
-		err_exit(1, "can't pchar, value out of range\n", 0);
+		err_exit(1, "can't pchar, stack empty\n", 0);
 	if ((*head)->n < 0 || (*head)->n > 127)
 	{
-		err_exit(0, "can't pchar, value out of range", 1);
+		err_exit(1, "can't pchar, value out of range\n", 0);
 	}
 	printf("%c\n", (*head)->n);
 }
