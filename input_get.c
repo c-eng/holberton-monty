@@ -1,11 +1,9 @@
 #include "monty.h"
-
 /**
  * input_get - gets input for monty interpretation
  *
  * Return: 0
  */
-
 int input_get(void)
 {
 	char *get;

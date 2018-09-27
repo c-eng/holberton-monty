@@ -1,5 +1,4 @@
 #include "monty.h"
-
 /**
  * err_exit - Error handling and error exiting for Monty interpreter
  *
@@ -9,7 +8,6 @@
  *
  * Return: UNKNOWN
  */
-
 void err_exit(int line_append, char *error, int end)
 {
 	if (line_append == 1)

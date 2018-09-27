@@ -1,5 +1,4 @@
 #include "monty.h"
-
 /**
  * intcheck - checks string if it is an int
  *
@@ -7,7 +6,6 @@
  *
  * Return: 1 if int, 0 if not
  */
-
 int intcheck(char *str)
 {
 	int idx = 0;

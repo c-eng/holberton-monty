@@ -17,10 +17,8 @@ svar_t share = {0,        /* push_val */
  *
  * Return: Something
  */
-
 int main(int argc __attribute__((unused)), char **argv)
 {
-/*	char *file_buffer, **tokray; */
 	int l_index = 0, get = 1;
 	size_t buffsize = 1024;
 	stack_t *head = NULL;

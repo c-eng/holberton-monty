@@ -1,19 +1,14 @@
 #include "monty.h"
-
 /**
  * push - pushes value onto head of list
- *
  * @head: head of list
  * @line: line number
- *
  * Return: address of new node or NULL if it fails
  */
-
 void push(stack_t **head, unsigned int line __attribute__((unused)))
 {
 	stack_t *add = NULL;
 
-	/* printf("Pushing: %d\n", share.push_val); */
 	if (!head)
 		err_exit(0, "Headless Add\n", 0);
 	add = malloc(sizeof(stack_t));
