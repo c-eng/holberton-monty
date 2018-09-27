@@ -5,15 +5,12 @@
  * @line: the line number
  * Return: nothing
  */
-void add(stack_t **head, unsigned int line)
+void add(stack_t **head, unsigned int line __attribute__((unused)))
 {
 	int sum = 0;
 	stack_t *strider;
 	if (!*head || (*head)->next == NULL)
-	{
-		printf("L%d: can't add, stack too short\n", line);
-		exit(EXIT_FAILURE);
-	}
+		err_exit(1, "can't add, stack too short\n", 0);
 	strider = (*head)->next;
 	sum = (*head)->n + strider->n;
 	strider->n = sum;

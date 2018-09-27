@@ -5,19 +5,16 @@
  * @line: the line number
  * Return: nothing
  */
-void pop(stack_t **head, unsigned int line)
+void pop(stack_t **head, unsigned int line __attribute__((unused)))
 {
 	stack_t *strider;
 	if (!*head)
-	{
-		printf("L%d: can't pop an empty stack\n", line);
-		exit(EXIT_FAILURE);
-	}
-	printf("popping\n");
+		err_exit(1, "can't pop an empty stack\n", 0);
+	/* printf("popping\n"); */
 	strider = (*head)->next;
 	if (strider)
 		strider->prev = NULL;
 	free(*head);
 	(*head) = strider;
-	printf("done popping\n");
+	/* printf("done popping\n"); */
 }

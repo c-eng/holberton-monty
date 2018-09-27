@@ -5,7 +5,7 @@
  * Return: operation to be used
  */
 
-void (*get_opcode(char **tokray))()
+void (*get_opcode())()
 {
 	int i = 0;
 	instruction_t array[] = {
@@ -16,24 +16,38 @@ void (*get_opcode(char **tokray))()
        		{"swap", swap},
        		{"add", add},
 		{"nop", nop},
-		{NULL, nop}
+		{NULL, NULL}
 	};
 
-	/* printf("getting opcode\n"); */
-	if (tokray[0])
+/*	printf("getting opcode\n");*/
+	if (share.tokray[0])
 	{
-		while (array[i].opcode && strcmp(array[i].opcode, tokray[0]))
+		while (array[i].opcode &&
+		       strcmp(array[i].opcode, share.tokray[0]))
 		{
-			/* printf("%s, %s\n", tokray[0], array[i].opcode); */
+			/*		printf("%s, %s\n", tokray[0], array[i].opcode); */
 			i++;
 		}
-		if (i == 0 && tokray[1])
+		if (i == 0)
 		{
-			/*	printf("assigning value\n"); */
-			share.push_val = atoi(tokray[1]);
+			if (share.tokray[1])
+			{
+				/*	printf("assigning value\n"); */
+				if (intcheck(share.tokray[1]))
+					share.push_val = atoi(share.tokray[1]);
+				else
+					err_exit(1, "usage: push integer\n", 0);
+			}
+			else
+				err_exit(1, "usage: push integer\n", 0);
 		}
 	}
 	else
-		return (array[7].f);
+		return (array[6].f); /* Make sure to change number to nop */
+	if (!array[i].opcode)
+	{
+		share.post_err = share.tokray[0];
+		err_exit(1, "unknown instruction ", 1);
+	}
 	return (array[i].f);
 }

@@ -5,13 +5,9 @@
  * @line_num: the line number
  * Return: nothing
  */
-void pint(stack_t **head, unsigned int line)
+void pint(stack_t **head, unsigned int line __attribute__((unused)))
 {
 	if (!*head)
-	{
-		printf("L%d: can't pint, stack empty\n", line);
-		exit(EXIT_FAILURE);
-		return;
-	}
+		err_exit(1, "can't pint, stack empty\n", 0);
 	printf("%d\n", (*head)->n);
 }

@@ -8,6 +8,7 @@
 #include <string.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <ctype.h>
 
 #define BUF_MAX 1024
 
@@ -49,21 +50,27 @@ typedef struct sharedvar_s
 {
 	int push_val;
 	int queue;
+	int line_no;
+	char *post_err;
 	stack_t *head;
+	char *file_buffer;
+	char **tokray;
 }svar_t;
 
 extern svar_t share;
 
 /*** Prototypes ***/
-int input_get(char *buffer, FILE *file);
-int str_tokenize(char *s, char **tok_array);
-void (*get_opcode(char **tokray))();
+void err_exit(int line_append, char *error, int end);
+int input_get(FILE *file);
+int str_tokenize();
+void (*get_opcode())();
+int intcheck(char *str);
 void push(stack_t **head, unsigned int line);
 void pall(stack_t **head, unsigned int line);
 void nop(stack_t **head, unsigned int line);
 void pint(stack_t **head, unsigned int line);
 void pop(stack_t **head, unsigned int line);
-void swap(stack_t **head, unsigned int line_num);
+void swap(stack_t **head, unsigned int line);
 void add(stack_t **head, unsigned int line);
 
 #endif /* _MONTY_H_ */
