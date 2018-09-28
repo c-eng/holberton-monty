@@ -22,6 +22,8 @@ void (*get_opcode())()
 		{"pstr", pstr},
 		{"rotl", rotl},
 		{"rotr", rotr},
+		{"stack", stack},
+		{"queue", queue},
 		{NULL, NULL}
 	};
 	if (share.tokray[0])
