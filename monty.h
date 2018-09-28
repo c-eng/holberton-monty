@@ -45,7 +45,6 @@ typedef struct instruction_s
 } instruction_t;
 
 
-/*** Global Struct ***/
 /**
  * struct sharedvar_s - struct of variables
  * @push_val: variable to push onto the stack
@@ -57,7 +56,7 @@ typedef struct instruction_s
  * @file_buffer: buffer for file input
  * @tokray: array of string tokens for op commands
  *
- * Description: global variables to be used across all functions
+ * Description: variables to be used across all functions
  */
 typedef struct sharedvar_s
 {
@@ -70,6 +69,8 @@ typedef struct sharedvar_s
 	char *file_buffer;
 	char **tokray;
 } svar_t;
+
+/*** Global Variable ***/
 
 extern svar_t share;
 
@@ -95,5 +96,7 @@ void pchar(stack_t **head, unsigned int line);
 void pstr(stack_t **head, unsigned int line);
 void rotl(stack_t **head, unsigned int line);
 void rotr(stack_t **head, unsigned int line);
+void stack(stack_t **head, unsigned int line);
+void queue(stack_t **head, unsigned int line);
 
 #endif /* _MONTY_H_ */
